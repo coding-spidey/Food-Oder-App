@@ -7,11 +7,12 @@ import classes from "./AvailableMeals.module.css";
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
-  console.log(process.env.REACT_APP_URL);
 
   useEffect(() => {
     const fetchMeals = async () => {
-      const response = await fetch(process.env.REACT_APP_URL);
+      const response = await fetch(
+        "https://food-order-app-2e79a-default-rtdb.firebaseio.com/meals.json"
+      );
       const responseData = await response.json();
 
       const loadedMeals = [];
